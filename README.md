@@ -48,6 +48,6 @@ npm i -D sass-loader node-sass
 7.Robo 3T  数据库可视化软件安装
 
 8.npm 包安装
-npm i -D koa-router koa-redis nodemailer axios koa-passport passport-local
+npm i -D koa-router koa-redis nodemailer axios koa-passport passport-local koa-bodyparser koa-generic-session koa-json mongoose
 
 -->
