@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import CryptoJS from "crypto-js";
 export default {
   data() {
     return {
@@ -156,7 +157,34 @@ export default {
           .catch(err => {});
       }
     },
-    register: function() {}
+    register: function() {
+      let self = this;
+      this.$refs["ruleForm"].validate(valid => {
+        if (valid) {
+          self.$axios
+            .post("/users/signup", {
+              username: window.encodeURIComponent(self.ruleForm.name),
+              password: CryptoJS.MD5(self.ruleForm.pwd).toString(),
+              email: self.ruleForm.email
+            })
+            .then(({ status, data }) => {
+              if (status === 200) {
+                if (data && data.code === 0) {
+                  location.href = "/login";
+                } else {
+                  self.error = data.msg;
+                }
+              } else {
+                self.error = `服务器出错，错误码:${status}`;
+              }
+              setTimeout(() => {
+                self.error = "";
+              }, 1500);
+            })
+            .catch(err => {});
+        }
+      });
+    }
   }
 };
 </script>
