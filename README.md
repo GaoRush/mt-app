@@ -48,9 +48,12 @@ npm i -D sass-loader node-sass
 7.Robo 3T  数据库可视化软件安装
 
 8.npm 包安装
-npm i -D koa-router koa-redis nodemailer axios koa-passport passport-local koa-bodyparser koa-generic-session koa-json mongoose crypto-js
+npm i -D koa-router koa-redis nodemailer axios koa-passport passport-local koa-bodyparser koa-generic-session koa-json mongoose crypto-js lodash
 
 9.需要开启mongod服务，redis数据库：
 $ mongod --dbpath="D:\Program Files\MongoDB\data\db"
 $ ./redis-server
+
+10.导入数据库表
+mongoimport -d student -c categroy categroy.dat
 -->
